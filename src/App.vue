@@ -30,6 +30,21 @@
     <v-app-bar app color="blue" dark>
       <!-- 開關選單 -->
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <!-- 搜尋選單-->
+      <v-text-field
+        dark
+        hide-details
+        clearable
+        prepend-inner-icon="mdi-magnify"
+        rounded
+        placeholder="請輸入搜尋內容"
+        outlined
+        dense
+        single-line
+      ></v-text-field>
+      <v-icon medium dark color="white" class="mx-auto ml-2">
+        mdi-email
+      </v-icon>
     </v-app-bar>
     <!-- 內容區塊 -->
     <v-main>
@@ -38,7 +53,7 @@
       </v-container>
     </v-main>
     <!-- footer -->
-    <v-bottom-navigation :value="value" color="teal" grow>
+    <v-bottom-navigation :value="value" v-if="!isMobile()" color="teal" grow>
       <v-btn>
         <span>Recents</span>
         <v-icon>mdi-history</v-icon>
@@ -69,5 +84,20 @@ export default {
       ],
     };
   },
+  methods: {
+    isMobile() {
+      if (screen.width <= 450) {
+        return false;
+      } else {
+        return true;
+      }
+    },
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+.v-application .transparent {
+  border-color: black !important;
+}
+</style>
