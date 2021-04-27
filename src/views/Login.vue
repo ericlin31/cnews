@@ -1,22 +1,38 @@
 <template>
-  <div class="login">
-    <div>
-      <span>帳號:</span>
-      <input type="text" v-model="account" value="" />
-    </div>
-    <div>
-      <span>密碼:</span>
-      <input type="text" v-model="password" value="" />
-    </div>
-    <p v-if="errorSwitch" class="error">帳號或密碼錯誤</p>
-    <button @click="checkPermission">登入</button>
-  </div>
+  <v-row>
+    <v-col cols="9" md="8" class="mx-auto">
+      <v-text-field label="帳號" v-model="account" clearable></v-text-field>
+      <v-text-field
+        class="mb-6 mb-md-16"
+        label="密碼"
+        :rules="rules"
+        v-model="password"
+        clearable
+      ></v-text-field>
+      <v-btn
+        class="mb-6 mb-md-16"
+        color="primary"
+        depressed
+        elevation="2"
+        medium
+        block
+        outlined
+        @click="checkPermission"
+      >
+        登入
+      </v-btn>
+      <v-alert v-if="errorSwitch" border="left" color="red" type="error"
+        >帳號或密碼錯誤</v-alert
+      >
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      rules: [(value) => (value && value.length >= 3) || "請輸入密碼"],
       account: "",
       password: "",
       errorSwitch: false,
@@ -42,28 +58,11 @@ export default {
     errorSwitch() {
       setTimeout(() => {
         this.errorSwitch = false;
-      }, 1500);
+      }, 2000);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.login {
-  margin: 0;
-  padding: 0;
-}
-p {
-  margin-bottom: 0;
-}
-p.error {
-  width: 100%;
-  height: auto;
-  position: fixed;
-  font-size: 2rem;
-  font-weight: 600;
-  color: red;
-  text-align: center;
-  bottom: 50%;
-}
 </style>
