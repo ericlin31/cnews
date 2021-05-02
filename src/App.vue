@@ -5,7 +5,7 @@
       <!-- 網頁標題 -->
       <v-list-item to="/">
         <v-list-item-content>
-          <v-list-item-title class="title"> CNews </v-list-item-title>
+          <v-list-item-title class="title">CNews</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <v-divider></v-divider>
@@ -42,9 +42,7 @@
         dense
         single-line
       ></v-text-field>
-      <v-icon medium dark color="white" class="mx-auto ml-2">
-        mdi-email
-      </v-icon>
+      <v-icon medium dark color="white" class="mx-auto ml-2">mdi-email</v-icon>
     </v-app-bar>
     <!-- 內容區塊 -->
     <v-main>
