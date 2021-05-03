@@ -1,13 +1,20 @@
 <template>
   <v-row>
-    <v-col cols="" md="9" class="mx-auto">
-      <v-card tile v-for="item in 4" :key="item" elevation="0">
-        <v-card-title>test{{ item }}</v-card-title>
-        <v-card-text>
-          <v-row align="left" class="mx-0">
-            <v-col> 測試一下內文 </v-col>
-          </v-row>
-        </v-card-text>
+    <v-col cols="12" md="9" class="mx-auto">
+      <v-card v-for="item in 4" :key="item" elevation="0" tile>
+        <v-list-item three-line>
+          <v-list-item-content>
+            <div class="author-info-text">子寧@Eric.Lin - 兩天前</div>
+            <v-list-item-title class="text-h6 font-weight-bold mb-0">
+              標題{{ item }}
+            </v-list-item-title>
+            <v-list-item-subtitle class="text-body-2 font-weight-medium"
+              >測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文</v-list-item-subtitle
+            >
+          </v-list-item-content>
+
+          <v-list-item-avatar tile size="80" color="grey"></v-list-item-avatar>
+        </v-list-item>
         <v-divider></v-divider>
       </v-card>
     </v-col>
@@ -18,5 +25,10 @@
 export default {};
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
+.author-info-text {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: grey;
+}
 </style>
