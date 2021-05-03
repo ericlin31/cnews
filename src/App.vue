@@ -1,23 +1,15 @@
 <template>
-  <v-app>
-    <top-bar></top-bar>
-    <v-main>
-      <v-container fluid>
-        <router-view></router-view>
-      </v-container>
-    </v-main>
-    <bottom-bar></bottom-bar>
-  </v-app>
+  <app-bar>
+    <router-view></router-view>
+  </app-bar>
 </template>
 
 <script>
-import topBar from "./components/appBar/topBar";
-import bottomBar from "./components/appBar/bottomBar";
+import appBar from "./views/AppBar";
 export default {
   name: "App",
   components: {
-    topBar,
-    bottomBar,
+    appBar,
   },
   data() {
     return {};
@@ -26,5 +18,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

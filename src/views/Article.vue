@@ -1,34 +1,29 @@
 <template>
-  <v-row>
-    <v-col cols="12" md="9" class="mx-auto">
-      <v-card v-for="item in 4" :key="item" elevation="0" tile>
-        <v-list-item three-line>
-          <v-list-item-content>
-            <div class="author-info-text">子寧@Eric.Lin - 兩天前</div>
-            <v-list-item-title class="text-h6 font-weight-bold mb-0">
-              標題{{ item }}
-            </v-list-item-title>
-            <v-list-item-subtitle class="text-body-2 font-weight-medium"
-              >測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文</v-list-item-subtitle
-            >
-          </v-list-item-content>
-
-          <v-list-item-avatar tile size="80" color="grey"></v-list-item-avatar>
-        </v-list-item>
-        <v-divider></v-divider>
-      </v-card>
-    </v-col>
-  </v-row>
+  <keep-alive>
+    <article-list v-if="isShow" @switch-article="switchArticle"></article-list>
+    <article-page v-else @switch-article="switchArticle"></article-page>
+  </keep-alive>
 </template>
 
 <script>
-export default {};
+import articleList from "../components/article/articleList";
+import articlePage from "../components/article/articlePage";
+export default {
+  data() {
+    return {
+      isShow: true,
+    };
+  },
+  components: {
+    articleList,
+    articlePage,
+  },
+  methods: {
+    switchArticle() {
+      this.isShow = !this.isShow;
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-.author-info-text {
-  font-size: 0.6rem;
-  font-weight: 400;
-  color: grey;
-}
-</style>
+<style lang="scss" scoped></style>

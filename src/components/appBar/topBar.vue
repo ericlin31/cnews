@@ -74,12 +74,12 @@ export default {
   data() {
     return {
       drawer: false,
-      isSearch: false,
-      searchText: "Welcome CNews",
       navList: [
         { path: "/login", title: "登入" },
         { path: "/article", title: "文章列表" },
       ],
+      isSearch: false,
+      searchText: "Welcome CNews",
     };
   },
   methods: {
