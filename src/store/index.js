@@ -1,21 +1,18 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import mutations from "../store/mutations";
+import actions from "../store/actions";
+import getters from "../store/getters";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    userInfo: {
-      name: "Eric",
-      email: "koty310055@gmail.com",
-      age: 23,
-    },
+    isLoading: false,
+    userInfo: null,
   },
-  mutations: {
-    addAge(state, payload) {
-      state.userInfo.age = payload.count;
-    },
-  },
-  actions: {},
+  mutations,
+  actions,
+  getters,
   modules: {},
 });

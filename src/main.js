@@ -4,6 +4,7 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
+import mixins from "./mixins/commonMixin";
 
 Vue.config.productionTip = false;
 
@@ -13,3 +14,5 @@ new Vue({
   vuetify,
   render: (h) => h(App),
 }).$mount("#app");
+
+Vue.mixin(mixins);

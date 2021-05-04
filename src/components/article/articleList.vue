@@ -36,18 +36,8 @@ export default {
     };
   },
   methods: {},
-  activated() {
-    console.log(
-      (window.pageYOffset || document.documentElement.scrollTop) -
-        (document.documentElement.clientTop || 0)
-    );
-  },
-  deactivated() {
-    console.log(
-      (window.pageYOffset || document.documentElement.scrollTop) -
-        (document.documentElement.clientTop || 0)
-    );
-  },
+  activated() {},
+  deactivated() {},
 };
 </script>
 

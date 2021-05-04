@@ -11,12 +11,22 @@
       ></v-text-field>
       <v-btn
         class="mb-6 mb-md-16"
+        color="secondary"
+        depressed
+        elevation="2"
+        medium
+        block
+        @click="checkTestPermission"
+      >
+        測試登入
+      </v-btn>
+      <v-btn
+        class="mb-6 mb-md-16"
         color="primary"
         depressed
         elevation="2"
         medium
         block
-        outlined
         @click="checkPermission"
       >
         登入
@@ -48,10 +58,22 @@ export default {
         memberData.account === this.account &&
         memberData.password === this.password
       ) {
-        this.$router.push("/");
+        this.$router.push("/Article");
       } else {
         this.errorSwitch = true;
       }
+    },
+    checkTestPermission() {
+      this.$store.commit({
+        type: "updateUserInfo",
+        data: {
+          id: 1,
+          name: "Eric",
+          email: "koty310055@gmail.com",
+          age: 23,
+        },
+      });
+      this.checkLogin();
     },
   },
   watch: {
@@ -61,8 +83,10 @@ export default {
       }, 2000);
     },
   },
+  mounted() {
+    this.checkLogin();
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

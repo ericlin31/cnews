@@ -15,7 +15,7 @@
       </v-list-item>
       <v-divider></v-divider>
       <!-- 選單 -->
-      <v-list nav dense>
+      <v-list nav dense class="fill-height" max-height="80%">
         <v-list-item
           v-cloak
           v-for="(item, index) in navList"
@@ -30,6 +30,13 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <v-list-item class="mb-auto">
+        <v-list-item-content>
+          <v-btn color="primary" mediumn block @click.stop="logOut"
+            >logout</v-btn
+          >
+        </v-list-item-content>
+      </v-list-item>
     </v-navigation-drawer>
     <!-- 上方導覽列 -->
     <v-app-bar app color="blue" dark>
@@ -102,6 +109,12 @@ export default {
       if (this.searchText && this.searchText !== "Welcome CNews") {
         alert(this.searchText);
       }
+    },
+    logOut() {
+      this.$store.commit({
+        type: "deleteUserInfo",
+      });
+      this.$router.push("/Login");
     },
   },
 };
