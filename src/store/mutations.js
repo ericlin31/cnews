@@ -5,4 +5,7 @@ export default {
   deleteUserInfo(state) {
     state.userInfo = null;
   },
+  updateNaviValue(state, payload) {
+    state.bottomNaviValue = payload.count;
+  },
 };

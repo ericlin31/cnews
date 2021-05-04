@@ -6,7 +6,7 @@
         :key="item"
         elevation="0"
         tile
-        @click.stop="$emit('switch-article')"
+        @click.stop="$router.push(`Page/${item}`)"
       >
         <v-list-item three-line>
           <v-list-item-content>

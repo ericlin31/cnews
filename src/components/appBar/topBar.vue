@@ -83,7 +83,7 @@ export default {
       drawer: false,
       navList: [
         { path: "/login", title: "登入" },
-        { path: "/article", title: "文章列表" },
+        { path: "/article/List", title: "文章列表" },
       ],
       isSearch: false,
       searchText: "Welcome CNews",

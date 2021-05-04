@@ -8,8 +8,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    isLoading: false,
-    userInfo: null,
+    isLoading: false, //讀取動畫
+    bottomNaviValue: 0, //下選單選擇
+    userInfo: null, //登入資訊
   },
   mutations,
   actions,

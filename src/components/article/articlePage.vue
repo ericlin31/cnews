@@ -7,10 +7,12 @@
           rounded
           color="primary"
           dark
-          @click.stop="$emit('switch-article')"
+          @click.stop="$router.go(-1)"
           >返回</v-btn
         >
-        <v-list-item-title>文章內容</v-list-item-title>
+        <v-list-item-title
+          >文章內容{{ $route.params.articleid }}</v-list-item-title
+        >
       </v-card>
     </v-col>
   </v-row>

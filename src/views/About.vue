@@ -1,18 +1,17 @@
 <template>
   <v-row>
-    <v-col cols="10" md="10" class="mx-auto">
-      <p class="text-h4">{{ msg }}</p>
+    <v-col cols="12" md="9">
+      <p class="text-h5">關於我</p>
     </v-col>
   </v-row>
 </template>
+
 <script>
 export default {
   data() {
-    return {
-      msg: "Welcome CNews",
-    };
+    return {};
   },
-  methods: {},
 };
 </script>
+
 <style lang="scss" scoped></style>
