@@ -66,7 +66,7 @@ export default {
         type: "updateUserInfo",
         data: this.TGuestData,
       });
-      this.$router.push("/");
+      this.$router.push("/Article");
     },
     checkPermission() {
       const memberData = {
@@ -81,7 +81,7 @@ export default {
           type: "updateUserInfo",
           data: this.TMemberData,
         });
-        this.$router.push("/");
+        this.$router.push("/Article");
       } else {
         this.errorSwitch = true;
       }

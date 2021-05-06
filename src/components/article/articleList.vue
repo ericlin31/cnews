@@ -36,7 +36,9 @@ export default {
     };
   },
   methods: {},
-  activated() {},
+  activated() {
+    this.checkLogin();
+  },
   deactivated() {},
 };
 </script>

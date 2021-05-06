@@ -5,7 +5,10 @@ export default {
   deleteUserInfo(state) {
     state.userInfo = null;
   },
-  updateNaviValue(state, payload) {
-    state.bottomNaviValue = payload.count;
+  updateBottomNaviValue(state, payload) {
+    state.appBar.bottomNaviValue = payload.count;
+  },
+  updateReturnValue(state, payload) {
+    state.appBar.requiresReturn = payload.show;
   },
 };

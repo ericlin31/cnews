@@ -8,7 +8,7 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    redirect: "/Article/List",
+    redirect: "/Article",
   },
   {
     path: "/Login",
@@ -22,6 +22,10 @@ const routes = [
     component: () => import("../views/Article.vue"),
     children: [
       {
+        path: "",
+        redirect: "List", // default child path
+      },
+      {
         name: "List",
         path: "List",
         component: () => import("../components/article/articleList.vue"),
@@ -29,6 +33,7 @@ const routes = [
       {
         name: "Page",
         path: "Page/:articleid",
+        meta: { requiresReturn: true },
         component: () => import("../components/article/articlePage.vue"),
       },
     ],
@@ -37,11 +42,7 @@ const routes = [
     path: "/About",
     name: "About",
     meta: { requiresLogin: true },
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    component: () => import("../views/About.vue"),
   },
   {
     path: "/Collection",
@@ -65,20 +66,33 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   //console.log(store.getters.isLoging);
-  if (
-    //檢查頁面是否需要登入
-    to.matched.some((record) => record.meta.requiresLogin) &&
-    store.getters.isLoging == false
-  ) {
-    next("/Login");
-  }
-  const appBarList = ["Article", "Collection", "Notification", "About"];
-  if (appBarList.indexOf(to.matched[0].name) !== -1)
+  // if (
+  //   //檢查頁面是否需要登入
+  //   to.matched.some((record) => record.meta.requiresLogin) &&
+  //   store.getters.isLoging == false
+  // ) {
+  //   next("/Login");
+  // }
+  if (to.matched.some((record) => record.meta.requiresReturn)) {
     store.commit({
-      type: "updateNaviValue",
+      type: "updateReturnValue",
+      show: true,
+    });
+  } else {
+    store.commit({
+      type: "updateReturnValue",
+      show: false,
+    });
+  }
+  const appBarList = ["Article", "Collection", "Notification", "About"]; //當對應頁面，更改下方導覽列選擇
+  if (appBarList.indexOf(to.matched[0].name) !== -1) {
+    store.commit({
+      type: "updateBottomNaviValue",
       count: appBarList.indexOf(to.matched[0].name),
     });
-  document.title = to.matched[0].name;
+  }
+
+  document.title = to.matched[0].name; //切換網頁標題
   next();
 });
 

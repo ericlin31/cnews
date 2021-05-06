@@ -1,5 +1,5 @@
 export default {
-  isLoging(state) {
+  Authorization(state) {
     if (state.userInfo !== null) return true;
     return false;
   },

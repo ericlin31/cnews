@@ -11,6 +11,10 @@ export default {
   components: {
     loginCpn,
   },
+  mounted() {},
+  activated() {
+    this.checkLogin();
+  },
 };
 </script>
 

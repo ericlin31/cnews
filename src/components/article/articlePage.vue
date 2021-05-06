@@ -24,6 +24,9 @@ export default {
     return {};
   },
   methods: {},
+  activated() {
+    this.checkLogin();
+  },
 };
 </script>
 
