@@ -2,7 +2,7 @@
   <v-row>
     <v-col cols="12" md="9" class="mx-auto">
       <v-card
-        v-for="item in 10"
+        v-for="item in 6"
         :key="item"
         elevation="0"
         tile
@@ -10,12 +10,19 @@
       >
         <v-list-item three-line>
           <v-list-item-content>
-            <div class="author-info-text">子寧@Eric.Lin - 兩天前</div>
+            <div
+              class="text-subtitle-2 font-weight-regular"
+              style="font-size: 0.6rem !important"
+            >
+              子寧@Eric.Lin - 兩天前
+            </div>
             <v-list-item-title class="text-h6 font-weight-bold mb-0">
               標題{{ item }}
             </v-list-item-title>
-            <v-list-item-subtitle class="text-body-2 font-weight-medium"
-              >測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文測試一下內文
+            <v-list-item-subtitle
+              class="text-body-2 font-weight-medium"
+              style="-webkit-line-clamp: 3"
+            >
               內文測試一下內文內文測試一下內文內文測試一下內文內文測試一下內文內文測試一下內文內文測試一下內文內文測試一下內文內文測試一下內文內文測試一下內文
             </v-list-item-subtitle>
           </v-list-item-content>
@@ -44,9 +51,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.author-info-text {
-  font-size: 0.6rem;
-  font-weight: 400;
-  color: grey;
-}
 </style>

@@ -57,13 +57,16 @@
         </v-icon>
       </v-app-bar-nav-icon>
 
-      <v-toolbar-title v-if="!isSearch">{{ searchText }}</v-toolbar-title>
+      <v-toolbar-title class="pl-1" v-if="!isSearch">{{
+        searchText
+      }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- 搜尋選單-->
       <v-text-field
         v-if="isSearch"
         ref="searchBox"
-        @blur="closeSearch"
+        prepend-inner-icon="mdi-close"
+        @click:prepend-inner="closeSearch"
         @keyup.enter="actionSearch"
         dark
         hide-details
