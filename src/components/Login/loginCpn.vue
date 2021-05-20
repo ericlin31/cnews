@@ -81,7 +81,6 @@ export default {
           type: "updateUserInfo",
           data: this.TMemberData,
         });
-        console.log("test");
         this.$router.push("/Article");
       } else {
         this.errorSwitch = true;
